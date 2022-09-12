@@ -23,10 +23,10 @@
             "pages/poster/poster"
       ],
       "window": {
-            "backgroundColor": "#fbbd08",
+            "backgroundColor": "#24a028",
             "backgroundTextStyle": "light",
-            "navigationBarBackgroundColor": "#fbbd08",
-            "navigationBarTitleText": "重庆大学二手书",
+            "navigationBarBackgroundColor": "#24a028",
+            "navigationBarTitleText": "北京某小学图书共享",
             "navigationBarTextStyle": "white"
       },
       "sitemapLocation": "sitemap.json",

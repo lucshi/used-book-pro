@@ -1,6 +1,6 @@
 .top_box {
       width: 100%;
-      background: #fbbd08;
+      background: #24a028;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -98,10 +98,10 @@
 }
 
 .tab-on {
-      color: #fbbd08;
+      color: #24a028;
       font-size: 32rpx !important;
       font-weight: 600;
-      border-bottom: 4rpx solid #fbbd08 !important;
+      border-bottom: 4rpx solid #24a028 !important;
 }
 
 .kind_img {
@@ -159,7 +159,7 @@
 }
 
 .list-on {
-      background: #fbbd08;
+      background: #24a028;
       color: #fff;
       border: none !important;
 }

@@ -28,7 +28,7 @@ Page({
             let that = this;
             that.setData({
                   dura: 30,
-                  price: 15,
+                  price: 10,
                   place: '',
                   chooseDelivery: 0,
                   cids: '-1', //学院选择的默认值
@@ -91,6 +91,16 @@ Page({
                   }
             })
       },
+      noisbn() {
+        let that = this;
+        that.setData({
+              show_a: false,
+              show_b: true,
+              show_c: false,
+              active: 1,
+        })
+      },
+      
       confirm() {
             let that = this;
             let isbn = that.data.isbn;
@@ -123,6 +133,7 @@ Page({
             wx.showLoading({
                   title: '正在获取'
             })
+
             //先检查是否存在该书记录，没有再进行云函数调用
             db.collection('books').where({
                   isbn: bn
@@ -143,6 +154,7 @@ Page({
                         }
                   }
             })
+        
       },
       //添加书籍信息到数据库
       addbooks(bn) {

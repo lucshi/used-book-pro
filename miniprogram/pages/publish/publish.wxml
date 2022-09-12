@@ -8,15 +8,17 @@
       <view class="a_contain">
             <view class="a_inp shadow">
                   <image class="a_scan" src="/images/scan.png"></image>
-                  <input bindconfirm="confirm" bindinput="isbnInput" value="{{isbn}}" type="number" maxlength="13" placeholder-class="a_pla" placeholder="请输入书本的ISBN号码" />
+                  <input bindconfirm="confirm" bindinput="isbnInput" value="{{isbn}}" type="number" maxlength="13" placeholder-class="a_pla" placeholder="输入ISBN号码或在下面直接扫码" />
                   <view class="a_confirm" bindtap="confirm">确认</view>
             </view>
             <image class="a_isbn" src="/images/isbn.jpg" />
-            <view class="a_des">您还可以直接通过摄像头扫描出ISBN码</view>
-            <image class="a_next" src="/images/next.png" />
+            <view>
+                  <button  bindtap="scan">点击扫码</button>
+            </view>
       </view>
-      <view class="a_sao">
-            <button class="shadow" bindtap="scan">点击扫码</button>
+
+      <view class="a_noisbn">
+            <button class="shadow" bindtap="noisbn" >没有ISBN码</button>
       </view>
 </van-transition>
 <!--步骤二-->
@@ -48,9 +50,22 @@
                         <view class="b_name">类别</view>
                         <radio-group class="kind-group" bindchange="kindChange">
                               <label class="b_radio" wx:for="{{kind}}" wx:key="id">
-                                    <radio color="#fbbd08" value="{{item.id}}" checked="{{item.check}}" />{{item.name}}
+                                    <radio color="#24a028" value="{{item.id}}" checked="{{item.check}}" />{{item.name}}
                               </label>
                         </radio-group>
+                        <block>
+                            <view class="b_border"></view>
+                            <view class="b_bar">
+                                  <view class="b_name">选择学院</view>
+                                  <picker range="{{college}}" range-key="name" value="{{cids}}" bindchange="choCollege">
+                                        <view class="b_picker">
+                                              <block wx:if="{{cids!==-1}}">当前选择：{{college[cids].name}}</block>
+                                              <block wx:if="{{cids==-1}}">请选择专业</block>
+                                              <image class="right" src="/images/right.png" />
+                                        </view>
+                                  </picker>
+                            </view>
+                        </block>
                   </view>
                   <!--选择专业书时候-->
                   <block wx:if="{{chooseCollege}}">
@@ -71,7 +86,7 @@
                         <view class="name">取货方式</view>
                         <radio-group class="kind-group" bindchange="delChange">
                               <label class="b_radio" wx:for="{{delivery}}" wx:key="id">
-                                    <radio color="#fbbd08" value="{{item.id}}" checked="{{item.check}}" />{{item.name}}
+                                    <radio color="#24a028" value="{{item.id}}" checked="{{item.check}}" />{{item.name}}
                               </label>
                         </radio-group>
                   </view>
